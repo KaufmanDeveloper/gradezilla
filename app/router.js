@@ -11,6 +11,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   nrgRoutes(this);
 
+  this.route('assignments');
 });
 
 export default Router;
