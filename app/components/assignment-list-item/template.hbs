@@ -1,0 +1,19 @@
+<div class="content">
+  <div class="header">
+    {{assignment.name}}
+  </div>
+  <div class="meta">
+    <span>
+      {{#if (eq assignment.scoreType "Percentage")}}
+        {{nrg-icon icon="percent"}}
+      {{else}}
+        {{nrg-icon icon="angle double up icon"}}
+      {{/if}}
+      <br />
+      Due: {{assignment.dueDate}}
+    </span>
+  </div>
+  <div class="extra">
+    {{assignment.description}}
+  </div>
+</div>

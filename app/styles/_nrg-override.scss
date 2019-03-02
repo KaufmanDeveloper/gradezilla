@@ -7,6 +7,7 @@ $primaryVariant: rgba(75, 173, 109, 0.98);
 
 .nrg-list.nrg-list.nrg-list .items > .item.active.active {
   background-color: $primary;
+
   & .description,
   & .description > a,
   & .header,
@@ -21,5 +22,9 @@ $primaryVariant: rgba(75, 173, 109, 0.98);
 }
 
 .environment-title.environment-title {
-  color: #00ffe9
+  color: #00ffe9;
+}
+
+.ui.primary.button.ui.primary.button.ui.primary.button {
+  background-color: $primaryVariant;
 }

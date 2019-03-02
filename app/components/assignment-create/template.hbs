@@ -1,0 +1,10 @@
+{{#nrg-form-container as |form|}}
+  {{#form.field label="Name" required=required as |field|}}
+    {{#field.text-field class="left icon action" disabled=disabled as |view|}}
+      {{view.input}}
+    {{/field.text-field}}
+  {{/form.field}}
+  {{#form.field label="Description" required=false as |field|}}
+    {{field.text-area model=this valuePath="description"}}
+  {{/form.field}}
+{{/nrg-form-container}}

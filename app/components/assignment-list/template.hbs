@@ -1,7 +1,6 @@
 {{#nrg-list groupHeaderHandler=groupHeaderHandler items=assignments select="select" loading=loading as |list|}}
   {{#list.items as |item|}}
-    <a class="content">
-      <div class="header">{{item.name}}</div>
-    </a>
+    {{assignment-list-item assignment=item}}
   {{/list.items}}
+  {{list.create-button}}
 {{/nrg-list}}
