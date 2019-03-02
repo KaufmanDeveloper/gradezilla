@@ -5,8 +5,21 @@ export default function() {
   this.namespace = '/api';
 
   this.get('/gradezilla/v1/assignments', () => {
-    var assignments = server.createList('assignment', 5);
-    return assignments;
+    let assignments = server.createList('assignment', 5);
+    //return server.findAll('assignment');
+    //return assignments;
+    return {
+      "assignments": [
+        {
+          "id": 1,
+          "name": "example"
+        },
+        {
+          "id": 1,
+          "name": "example2"
+        },
+      ],
+    };
   }, {
     timing: 1000,
   });
