@@ -1,7 +1,7 @@
-{{#nrg-list selectionType="single" items=assignments select="select" loading=loading as |list|}}
-{{#list.items as |item|}}
-  <div class="content">
-    <a class = "header">{{item.name}}</a>
-  </div>
-{{/list.items}}
+{{#nrg-list groupHeaderHandler=groupHeaderHandler items=assignments select="select" loading=loading as |list|}}
+  {{#list.items as |item|}}
+    <a class="content">
+      <div class="header">{{item.name}}</div>
+    </a>
+  {{/list.items}}
 {{/nrg-list}}

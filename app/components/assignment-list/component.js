@@ -15,13 +15,13 @@ export default Component.extend({
 
   loading: alias('getAssignments.isRunning'),
 
+  groupHeaderHandler(item) {
+    return item.get('category')
+  },
+
   getAssignments: task(function*() {
-    /*
-    const query = {}
-    query.start = 0;
-    query.count = 30;
-    */
-    const assignments = yield this.get('store').findAll('assignment');
+    let assignments = yield this.get('store').findAll('assignment');
+    assignments = assignments.sortBy('category');
     this.set('assignments', assignments);
   }).on('init')
 });
