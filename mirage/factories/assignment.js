@@ -5,6 +5,9 @@ import {
 import moment from 'moment';
 
 export default Factory.extend({
+  id(i) {
+    return i;
+  },
   class() {
     return faker.lorem.word();
   },

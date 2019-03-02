@@ -4,22 +4,12 @@ export default function() {
 
   this.namespace = '/api';
 
-  this.get('/gradezilla/v1/assignments', () => {
-    let assignments = server.createList('assignment', 5);
-    //return server.findAll('assignment');
-    //return assignments;
+  this.get('/gradezilla/v1/assignments', (schema, request) => {
+    server.createList('assignment', 5);
+    let assignments = schema.assignments.all();
     return {
-      "assignments": [
-        {
-          "id": 1,
-          "name": "example"
-        },
-        {
-          "id": 1,
-          "name": "example2"
-        },
-      ],
-    };
+      "assignments": assignments.models
+    }
   }, {
     timing: 1000,
   });
