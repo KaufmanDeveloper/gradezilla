@@ -1,1 +1,19 @@
 @import 'nrg-override';
+
+.content {
+  .header {
+    font-size: 1.2em;
+  }
+}
+
+.inline.inline.inline.inline {
+  display: inline;
+}
+
+.score-icon.score-icon.score-icon.score-icon.score-icon.score-icon {
+  display: inline;
+  position: absolute;
+  right: 1em;
+  margin-top: 1.5em;
+  font-size: 1.2em;
+}
