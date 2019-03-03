@@ -12,6 +12,7 @@ import {
 
 export default Component.extend({
   store: service(),
+  router: service(),
 
   loading: alias('getAssignments.isRunning'),
 
@@ -23,5 +24,11 @@ export default Component.extend({
     let assignments = yield this.get('store').findAll('assignment');
     assignments = assignments.sortBy('category');
     this.set('assignments', assignments);
-  }).on('init')
+  }).on('init'),
+
+  actions: {
+    createAssignment() {
+      this.get('router').transitionTo('assignments.assignment');
+    }
+  },
 });

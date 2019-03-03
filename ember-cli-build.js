@@ -9,6 +9,15 @@ const ENV = config(emberENV);
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    'ember-cli-favicon': {
+    //enabled: ENV != 'test', // By default favicons are NOT generated in TEST env to speedup builds
+    enabled: true,
+    onSuccess() {}, // You can call your callback when favicons are generated successfully
+
+    iconPath: 'favicon.png', // icon path related to `public` folder
+
+    // See the [favicons](https://github.com/itgalaxy/favicons) module for details on the available configuration options.
+  }
   });
 
   // Use `app.import` to add additional libraries to the generated

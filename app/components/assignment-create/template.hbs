@@ -1,10 +1,21 @@
 {{#nrg-form-container as |form|}}
   {{#form.field label="Name" required=required as |field|}}
-    {{#field.text-field class="left icon action" disabled=disabled as |view|}}
+    {{#field.text-field as |view|}}
       {{view.input}}
     {{/field.text-field}}
+  {{/form.field}}
+  {{#form.field label="Due Date" required=required as |field|}}
+    {{field.datetime disabled=disabled}}
+  {{/form.field}}
+  {{#form.field as |field|}}
+      {{field.radio label="Percentage" disabled=disabled value="1" selectedValue=selectedScoreTypeValue}}
+  {{/form.field}}
+  {{#form.field as |field|}}
+      {{field.radio label="Points" disabled=disabled value="2" selectedValue=selectedScoreTypeValue}}
   {{/form.field}}
   {{#form.field label="Description" required=false as |field|}}
     {{field.text-area model=this valuePath="description"}}
   {{/form.field}}
+  {{form.submit-button}}
+  {{nrg-button class="basic black" action="cancelCreate" text="Cancel"}}
 {{/nrg-form-container}}
