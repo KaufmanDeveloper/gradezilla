@@ -10,8 +10,9 @@ export default Component.extend({
 
   descriptionLimited: computed(function() {
     const description = this.get('assignment.description');
-    let descriptionLimited = description.substring(1, 40);
-    if (description.length > 40) {
+    let descriptionLimited = description;
+    if (description && description.length > 40) {
+    descriptionLimited = description.substring(1, 40);
       descriptionLimited = descriptionLimited + "..."
     }
     return descriptionLimited;

@@ -11,4 +11,16 @@ export default function() {
   }, {
     timing: 1000,
   });
+
+  this.post('/gradezilla/v1/assignments', (schema, request) => {
+    //debugger;
+    const attrs = {
+      "assignments": JSON.parse(request.requestBody).assignment
+    };
+    let response = schema.assignments.create(attrs);
+    debugger;
+    return response.attrs;
+  }, {
+    timing: 1000,
+  });
 }

@@ -1,21 +1,23 @@
 {{#nrg-form-container as |form|}}
-  {{#form.field label="Name" required=required as |field|}}
+  {{#form.field label="Name" required=true as |field|}}
     {{#field.text-field as |view|}}
-      {{view.input}}
+      {{view.input model=this value=name valuePath=name}}
     {{/field.text-field}}
   {{/form.field}}
-  {{#form.field label="Due Date" required=required as |field|}}
-    {{field.datetime disabled=disabled}}
+  {{#form.field label="Due Date" required=true as |field|}}
+    {{field.datetime valuePath=dueDate disabled=disabled}}
   {{/form.field}}
-  {{#form.field as |field|}}
-      {{field.radio label="Percentage" disabled=disabled value="1" selectedValue=selectedScoreTypeValue}}
-  {{/form.field}}
-  {{#form.field as |field|}}
-      {{field.radio label="Points" disabled=disabled value="2" selectedValue=selectedScoreTypeValue}}
+  {{#form.field label="Score Type" as |field|}}
+    {{#form.field as |view|}}
+      {{view.radio label="Percentage" disabled=disabled value="Percentage" valuePath=scoreType selectedValue=selectedScoreTypeValue}}
+    {{/form.field}}
+    {{#form.field as |view|}}
+      {{view.radio label="Points" disabled=disabled value="Points" valuePath=scoreType selectedValue=selectedScoreTypeValue}}
+    {{/form.field}}
   {{/form.field}}
   {{#form.field label="Description" required=false as |field|}}
-    {{field.text-area model=this valuePath="description"}}
+    {{field.text-area model=this valuePath=description}}
   {{/form.field}}
-  {{form.submit-button}}
+  {{form.submit-button action="create"}}
   {{nrg-button class="basic black" action="cancelCreate" text="Cancel"}}
 {{/nrg-form-container}}
