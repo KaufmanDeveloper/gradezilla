@@ -18,6 +18,6 @@
   {{#form.field label="Description" required=false as |field|}}
     {{field.text-area model=this valuePath=description}}
   {{/form.field}}
-  {{form.submit-button action="create"}}
+  {{form.submit-button action="create" loading=saveRunning}}
   {{nrg-button class="basic black" action="cancelCreate" text="Cancel"}}
 {{/nrg-form-container}}

@@ -6,7 +6,7 @@ import {
 
 export default Component.extend({
   tagName: 'a',
-  classNames: ['item'],
+  classNames: ['item assignment-list-item'],
 
   descriptionLimited: computed(function() {
     const description = this.get('assignment.description');
