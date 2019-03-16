@@ -1,4 +1,4 @@
-{{#nrg-list groupHeaderHandler=groupHeaderHandler items=assignments select="select" loading=loading as |list|}}
+{{#nrg-list groupHeaderHandler=groupHeaderHandler items=sortedAssignments select="select" loading=loading as |list|}}
   {{#list.items as |item|}}
     {{assignment-list-item assignment=item click=(action "selectAssignment" item)}}
   {{/list.items}}
