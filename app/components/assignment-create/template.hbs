@@ -28,4 +28,7 @@
   {{/form.field}}
   {{form.submit-button action="create" loading=save.isRunning}}
   {{nrg-button class="basic black" action="cancelCreate" text="Cancel"}}
+  {{#if canDelete}}
+  {{nrg-button class="red assignment-delete" action="delete" text="Delete"}}
+  {{/if}}
 {{/nrg-form-container}}

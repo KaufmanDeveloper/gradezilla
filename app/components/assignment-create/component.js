@@ -13,6 +13,7 @@ export default Component.extend({
 
   assignmentIsSelected: null,
   assignment: null,
+  canDelete: false,
 
   createAssignment: task(function*() {
     if (this.get('router.currentRouteName') == 'assignments.assignment' && !this.get('assignment')) {
@@ -37,6 +38,9 @@ export default Component.extend({
         this.set('assignmentIsSelected', false);
         this.get('router').transitionTo('assignments');
       });
-    }
+    },
+    delete() {
+      
+    },
   },
 });

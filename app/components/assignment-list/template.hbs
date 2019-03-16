@@ -6,5 +6,5 @@
 {{/nrg-list}}
 
 {{#nrg-modal headerText="Edit Assignment" isOpen=assignmentIsSelected}}
-  {{assignment-create assignment=(readonly currentAssignment) assignmentIsSelected=assignmentIsSelected}}
+  {{assignment-create assignment=(readonly currentAssignment) assignmentIsSelected=assignmentIsSelected canDelete=true}}
 {{/nrg-modal}}
