@@ -6,8 +6,12 @@ export default function() {
   this.get('/gradezilla/v1/assignments', {
     timing: 1000
   });
-  
+
   this.post('/gradezilla/v1/assignments', {
     timing: 1000
   });
+
+  this.put('gradezilla/v1/assignments/:id', {
+    timing: 1000
+  })
 }

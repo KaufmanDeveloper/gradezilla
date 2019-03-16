@@ -11,29 +11,31 @@ export default Component.extend({
   store: service(),
   router: service(),
 
+  assignmentIsSelected: null,
   assignment: null,
 
+  createAssignment: task(function*() {
+    if (this.get('router.currentRouteName') == 'assignments.assignment' && !this.get('assignment')) {
+      yield this.set('assignment', this.get('store').createRecord('assignment'));
+    }
+  }).on('init'),
+
   save: task(function*() {
-    const store = this.get('store');
-    let assignment = store.createRecord('assignment', {
-      name: this.get('name'),
-      dueDate: this.get('dueDate'),
-      scoreType: this.get('selectedScoreTypeValue'),
-      category: this.get('selectedCategoryValue'),
-      description: this.get('description')
-    });
+    const assignment = this.get('assignment');
     yield assignment.save();
   }),
 
   actions: {
     cancelCreate() {
-      this.get('router').transitionTo('assignments');
+      this.get('assignment').rollbackAttributes();
       this.set('assignmentIsSelected', false);
+      this.get('router').transitionTo('assignments');
     },
     create() {
       this.get('save').perform().then(() => {
-        this.get('router').transitionTo('assignments');
+        this.set('assignment', null);
         this.set('assignmentIsSelected', false);
+        this.get('router').transitionTo('assignments');
       });
     }
   },
