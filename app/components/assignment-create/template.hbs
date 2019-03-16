@@ -1,11 +1,11 @@
 {{#nrg-form-container as |form|}}
-  {{#form.field label="Name" required=true as |field|}}
+  {{#form.field label="Name" as |field|}}
     {{#field.text-field as |view|}}
       {{view.input model=this value=name valuePath=name}}
     {{/field.text-field}}
   {{/form.field}}
-  {{#form.field label="Due Date" required=true as |field|}}
-    {{field.datetime valuePath=dueDate disabled=disabled}}
+  {{#form.field label="Due Date" as |field|}}
+    {{field.datetime value=dueDate disabled=disabled}}
   {{/form.field}}
   {{#form.field label="Score Type" as |field|}}
     {{#form.field as |view|}}
@@ -15,9 +15,17 @@
       {{view.radio label="Points" disabled=disabled value="Points" valuePath=scoreType selectedValue=selectedScoreTypeValue}}
     {{/form.field}}
   {{/form.field}}
-  {{#form.field label="Description" required=false as |field|}}
-    {{field.text-area model=this valuePath=description}}
+  {{#form.field label="Category" as |field|}}
+    {{#form.field as |view|}}
+      {{view.radio label="Homework" disabled=disabled value="Homework" valuePath=category selectedValue=selectedCategoryValue}}
+    {{/form.field}}
+    {{#form.field as |view|}}
+      {{view.radio label="Test" disabled=disabled value="Test" valuePath=category selectedValue=selectedCategoryValue}}
+    {{/form.field}}
   {{/form.field}}
-  {{form.submit-button action="create" loading=saveRunning}}
+  {{#form.field label="Description" as |field|}}
+    {{field.text-area model=this value=description}}
+  {{/form.field}}
+  {{form.submit-button action="create" loading=save.isRunning}}
   {{nrg-button class="basic black" action="cancelCreate" text="Cancel"}}
 {{/nrg-form-container}}
