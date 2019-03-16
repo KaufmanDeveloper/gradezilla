@@ -1,0 +1,30 @@
+$primary: rgba(42, 167, 85, 0.98);
+$primaryVariant: rgba(75, 173, 109, 0.98);
+
+.nrg-application.nrg-application.nrg-application > .main.menu {
+  background-color: rgba($primary, .98);
+}
+
+.nrg-list.nrg-list.nrg-list .items > .item.active.active {
+  background-color: $primary;
+
+  & .description,
+  & .description > a,
+  & .header,
+  & .meta,
+  & > .icon {
+    color: #fff;
+  }
+}
+
+.home-card.home-card.home-card.home-card .image.icon {
+  background-color: $primaryVariant;
+}
+
+.environment-title.environment-title {
+  color: #00ffe9;
+}
+
+.ui.primary.button.ui.primary.button.ui.primary.button {
+  background-color: $primaryVariant;
+}
