@@ -11,6 +11,8 @@ export default Component.extend({
   store: service(),
   router: service(),
 
+  assignment: null,
+
   save: task(function*() {
     const store = this.get('store');
     let assignment = store.createRecord('assignment', {
@@ -26,10 +28,12 @@ export default Component.extend({
   actions: {
     cancelCreate() {
       this.get('router').transitionTo('assignments');
+      this.set('assignmentIsSelected', false);
     },
     create() {
       this.get('save').perform().then(() => {
         this.get('router').transitionTo('assignments');
+        this.set('assignmentIsSelected', false);
       });
     }
   },

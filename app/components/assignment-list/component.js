@@ -15,6 +15,8 @@ export default Component.extend({
   router: service(),
 
   loading: alias('getAssignments.isRunning'),
+  currentAssignment: null,
+  assignmentIsSelected: false,
 
   groupHeaderHandler(item) {
     return item.get('category')
@@ -29,6 +31,10 @@ export default Component.extend({
   actions: {
     createAssignment() {
       this.get('router').transitionTo('assignments.assignment');
+    },
+    selectAssignment(assignment) {
+      this.set('currentAssignment', assignment);
+      this.set('assignmentIsSelected', true);
     }
   },
 });
