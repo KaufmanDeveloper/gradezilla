@@ -26,6 +26,11 @@ export default Component.extend({
     yield assignment.save();
   }),
 
+  delete: task(function*() {
+    const assignment = this.get('assignment');
+    yield assignment.destroyRecord();
+  }),
+
   actions: {
     cancelCreate() {
       this.get('assignment').rollbackAttributes();
@@ -40,7 +45,9 @@ export default Component.extend({
       });
     },
     delete() {
-      
+      this.get('delete').perform().then(() => {
+        this.set('assignmentIsSelected', false);
+      });
     },
   },
 });

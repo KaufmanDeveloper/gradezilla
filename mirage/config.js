@@ -13,5 +13,9 @@ export default function() {
 
   this.put('gradezilla/v1/assignments/:id', {
     timing: 1000
-  })
+  });
+
+  this.delete('gradezilla/v1/assignments/:id', {
+    timing: 1000
+  });
 }
