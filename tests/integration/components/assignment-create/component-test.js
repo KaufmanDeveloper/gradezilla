@@ -12,15 +12,6 @@ module('Integration | Component | assignment-create', function(hooks) {
 
     await render(hbs`{{assignment-create}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#assignment-create}}
-        template block text
-      {{/assignment-create}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.notEqual(this.element.textContent.trim(), '');
   });
 });
