@@ -1,0 +1,48 @@
+.nrg-application.nrg-application.nrg-application > .main.menu {
+  background-color: rgba(42, 167, 85, 0.98);
+}
+
+.nrg-list.nrg-list.nrg-list .items > .item.active.active {
+  background-color: rgba(42, 167, 85, 0.98);
+}
+.nrg-list.nrg-list.nrg-list .items > .item.active.active .description, .nrg-list.nrg-list.nrg-list .items > .item.active.active .description > a, .nrg-list.nrg-list.nrg-list .items > .item.active.active .header, .nrg-list.nrg-list.nrg-list .items > .item.active.active .meta, .nrg-list.nrg-list.nrg-list .items > .item.active.active > .icon {
+  color: #fff;
+}
+
+.home-card.home-card.home-card.home-card .image.icon {
+  background-color: rgba(75, 173, 109, 0.98);
+}
+
+.environment-title.environment-title {
+  color: #00ffe9;
+}
+
+.ui.primary.button.ui.primary.button.ui.primary.button {
+  background-color: rgba(75, 173, 109, 0.98);
+}
+
+.content .header {
+  font-size: 1.2em;
+}
+
+.inline.inline.inline.inline {
+  display: inline;
+}
+
+.score-icon.score-icon.score-icon.score-icon.score-icon.score-icon {
+  display: inline;
+  position: absolute;
+  right: 1em;
+  margin-top: 1.5em;
+  font-size: 1.2em;
+}
+
+.assignment-list-item {
+  width: 100%;
+}
+
+.assignment-delete {
+  float: right;
+}
+
+/*# sourceMappingURL=gradezilla.css.map */
