@@ -9,26 +9,37 @@ import {
 import {
   alias
 } from '@ember/object/computed';
+import {
+  sort
+} from '@ember/object/computed';
 
 export default Component.extend({
   store: service(),
   router: service(),
 
   loading: alias('getAssignments.isRunning'),
+  currentAssignment: null,
+  assignmentIsSelected: false,
 
   groupHeaderHandler(item) {
     return item.get('category')
   },
 
+  categorySort: Object.freeze(['category:asc']),
+  sortedAssignments: sort('assignments', 'categorySort'),
+
   getAssignments: task(function*() {
     let assignments = yield this.get('store').findAll('assignment');
-    assignments = assignments.sortBy('category');
     this.set('assignments', assignments);
   }).on('init'),
 
   actions: {
     createAssignment() {
       this.get('router').transitionTo('assignments.assignment');
+    },
+    selectAssignment(assignment) {
+      this.set('currentAssignment', assignment);
+      this.set('assignmentIsSelected', true);
     }
   },
 });

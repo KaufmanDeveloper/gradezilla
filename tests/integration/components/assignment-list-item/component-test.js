@@ -13,14 +13,5 @@ module('Integration | Component | assignment-list-item', function(hooks) {
     await render(hbs`{{assignment-list-item}}`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#assignment-list-item}}
-        template block text
-      {{/assignment-list-item}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

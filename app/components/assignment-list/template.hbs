@@ -1,6 +1,10 @@
-{{#nrg-list groupHeaderHandler=groupHeaderHandler items=assignments select="select" loading=loading as |list|}}
+{{#nrg-list groupHeaderHandler=groupHeaderHandler items=sortedAssignments select="select" loading=loading as |list|}}
   {{#list.items as |item|}}
-    {{assignment-list-item assignment=item}}
+    {{assignment-list-item assignment=item click=(action "selectAssignment" item)}}
   {{/list.items}}
   {{list.create-button action="createAssignment"}}
 {{/nrg-list}}
+
+{{#nrg-modal headerText="Edit Assignment" isOpen=assignmentIsSelected}}
+  {{assignment-create assignment=(readonly currentAssignment) assignmentIsSelected=assignmentIsSelected canDelete=true}}
+{{/nrg-modal}}
