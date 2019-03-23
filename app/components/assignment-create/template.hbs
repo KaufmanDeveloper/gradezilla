@@ -1,34 +1,38 @@
-{{#nrg-form-container as |form|}}
-  {{#form.field label="Name" as |field|}}
-    {{#field.text-field as |view|}}
-      {{view.input model=this value=assignment.name}}
-    {{/field.text-field}}
-  {{/form.field}}
-  {{#form.field label="Due Date" as |field|}}
-    {{field.datetime value=assignment.dueDate disabled=disabled}}
-  {{/form.field}}
-  {{#form.field label="Score Type" as |field|}}
-    {{#form.field as |view|}}
-      {{view.radio label="Percentage" disabled=disabled value="Percentage" valuePath=scoreType selectedValue=assignment.scoreType}}
-    {{/form.field}}
-    {{#form.field as |view|}}
-      {{view.radio label="Points" disabled=disabled value="Points" valuePath=scoreType selectedValue=assignment.scoreType}}
-    {{/form.field}}
-  {{/form.field}}
-  {{#form.field label="Category" as |field|}}
-    {{#form.field as |view|}}
-      {{view.radio label="Homework" disabled=disabled value="Homework" valuePath=category selectedValue=assignment.category}}
-    {{/form.field}}
-    {{#form.field as |view|}}
-      {{view.radio label="Test" disabled=disabled value="Test" valuePath=category selectedValue=assignment.category}}
-    {{/form.field}}
-  {{/form.field}}
-  {{#form.field label="Description" as |field|}}
-    {{field.text-area model=this value=assignment.description}}
-  {{/form.field}}
-  {{form.submit-button action="create" loading=save.isRunning}}
-  {{nrg-button class="basic black" action="cancelCreate" text="Cancel"}}
-  {{#if canDelete}}
-  {{nrg-button class="red assignment-delete" action="delete" text="Delete" loading=delete.isRunning}}
-  {{/if}}
-{{/nrg-form-container}}
+<div class="ui container">
+  <div class="ui basic segment">
+    {{#nrg-form-container as |form|}}
+      {{#form.field label="Name" as |field|}}
+        {{#field.text-field as |view|}}
+          {{view.input model=this value=assignment.name}}
+        {{/field.text-field}}
+      {{/form.field}}
+      {{#form.field label="Due Date" as |field|}}
+        {{field.datetime value=assignment.dueDate disabled=disabled}}
+      {{/form.field}}
+      {{#form.field label="Score Type" as |field|}}
+        {{#form.field as |view|}}
+          {{view.radio label="Percentage" disabled=disabled value="Percentage" valuePath=scoreType selectedValue=assignment.scoreType}}
+        {{/form.field}}
+        {{#form.field as |view|}}
+          {{view.radio label="Points" disabled=disabled value="Points" valuePath=scoreType selectedValue=assignment.scoreType}}
+        {{/form.field}}
+      {{/form.field}}
+      {{#form.field label="Category" as |field|}}
+        {{#form.field as |view|}}
+          {{view.radio label="Homework" disabled=disabled value="Homework" valuePath=category selectedValue=assignment.category}}
+        {{/form.field}}
+        {{#form.field as |view|}}
+          {{view.radio label="Test" disabled=disabled value="Test" valuePath=category selectedValue=assignment.category}}
+        {{/form.field}}
+      {{/form.field}}
+      {{#form.field label="Description" as |field|}}
+        {{field.text-area model=this value=assignment.description}}
+      {{/form.field}}
+      {{form.submit-button action="create" loading=save.isRunning}}
+      {{nrg-button class="basic black" action="cancelCreate" text="Cancel"}}
+      {{#if canDelete}}
+        {{nrg-button class="red icon assignment-delete" action="delete" icon="trash" loading=delete.isRunning}}
+      {{/if}}
+    {{/nrg-form-container}}
+  </div>
+</div>
