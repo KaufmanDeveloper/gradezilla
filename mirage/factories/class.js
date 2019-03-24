@@ -4,8 +4,8 @@ import {
 } from 'ember-cli-mirage';
 
 export default Factory.extend({
-  id(i) {
-    return i;
+  id() {
+    return faker.random.uuid();
   },
   name() {
     return faker.lorem.word();

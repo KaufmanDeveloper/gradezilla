@@ -18,4 +18,8 @@ export default function() {
   this.delete('gradezilla/v1/assignments/:id', {
     timing: 1000
   });
+
+  this.get('/gradezilla/v1/classes', {
+    timing: 1000
+  });
 }
