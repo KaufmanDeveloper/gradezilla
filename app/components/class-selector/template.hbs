@@ -4,7 +4,7 @@
     <i class="dropdown icon"></i>
     <div class="menu">
       {{#each classes as |class|}}
-      <div class="item">{{class.name}}</div>
+      <div class="item" {{action "selectClass" class}}>{{class.name}}</div>
       {{/each}}
     </div>
   </div>

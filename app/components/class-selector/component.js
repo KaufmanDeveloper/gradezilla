@@ -20,4 +20,10 @@ export default Component.extend({
       this.set('selectedClass', this.get('classes.firstObject.data.name'));
     }
   }).on('init'),
+
+  actions: {
+    selectClass(selectedClass) {
+      this.set('selectedClass', selectedClass.name);
+    },
+  }
 });
