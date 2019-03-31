@@ -1,6 +1,10 @@
 <div class="ui compact menu class-dropdown">
   <div class="ui simple dropdown item">
-    {{selectedClass}}
+    {{#if selectedClass}}
+      {{selectedClass}}
+    {{else}}
+      Select Class
+    {{/if}}
     <i class="dropdown icon"></i>
     <div class="menu">
       {{#each classes as |class|}}

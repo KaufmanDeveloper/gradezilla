@@ -6,24 +6,21 @@ import {
 import {
   task,
 } from 'ember-concurrency';
+import { alias } from '@ember/object/computed';
 
 export default Component.extend({
   store: service(),
   router: service(),
+  classService: service('class'),
 
-  selectedClass: null,
+  classNames: ['class-dropdown'],
 
-  getClasses: task(function*() {
-    let classes = yield this.get('store').findAll('class');
-    this.set('classes', classes);
-    if (!this.get('selectedClass')) {
-      this.set('selectedClass', this.get('classes.firstObject.data.name'));
-    }
-  }).on('init'),
+  classes: alias('classService.classes'),
+  selectedClass: alias('classService.selectedClass'),
 
   actions: {
     selectClass(selectedClass) {
-      this.set('selectedClass', selectedClass.name);
+      this.set('classService.selectedClass', selectedClass.name);
     },
   }
 });
