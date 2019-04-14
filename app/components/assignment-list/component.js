@@ -12,6 +12,9 @@ import {
 import {
   sort
 } from '@ember/object/computed';
+import {
+  computed
+} from '@ember/object';
 
 export default Component.extend({
   store: service(),
@@ -28,10 +31,18 @@ export default Component.extend({
   categorySort: Object.freeze(['category:asc']),
   sortedAssignments: sort('assignments', 'categorySort'),
 
-  getAssignments: task(function*() {
-    let assignments = yield this.get('store').findAll('assignment');
+  getAssignments: task(function* () {
+    let assignments = yield this.get('store').query('assignment', {
+      class: this.get('selectedClass')
+    });
     this.set('assignments', assignments);
-  }).on('init'),
+  }),
+
+  assignments: computed(function () {
+    if (this.get('selectedClass')) {
+      this.get('getAssignments').perform();
+    }
+  }),
 
   actions: {
     createAssignment() {
