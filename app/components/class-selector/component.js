@@ -17,7 +17,7 @@ export default Component.extend({
 
   actions: {
     selectClass(selectedClass) {
-      this.set('classService.selectedClass', selectedClass.name);
+      this.set('classService.selectedClass', selectedClass.className);
     },
   }
 });

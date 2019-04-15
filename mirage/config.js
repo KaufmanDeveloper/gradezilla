@@ -23,7 +23,15 @@ export default function () {
     timing: 1000
   });
 
-  this.get('/gradezilla/v1/classes', {
-    timing: 1000
-  });
+  // this.get('/gradezilla/v1/classes', {
+  //   timing: 1000
+  // });
+
+  this.get('/gradezilla/v1/classes', (schema, request) => {
+    var query = request.queryParams;
+
+    return schema.classes.where(query);
+  }, {
+      timing: 1000
+    });
 }

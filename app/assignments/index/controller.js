@@ -7,9 +7,9 @@ import {
 } from '@ember/service';
 
 export default Controller.extend({
-    queryParams: ['class'],
+    queryParams: ['className'],
 
     classService: service('class'),
 
-    class: alias('classService.selectedClass'),
+    className: alias('classService.selectedClass'),
 });

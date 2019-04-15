@@ -1,3 +1,4 @@
+{{#if selectedClass}}
 <div class="ui container">
   <div class="ui basic segment">
     {{#nrg-form-container as |form|}}
@@ -36,3 +37,8 @@
     {{/nrg-form-container}}
   </div>
 </div>
+{{else}}
+<div class="ui segment">
+  <p>Please select a class</p>
+</div>
+{{/if}}

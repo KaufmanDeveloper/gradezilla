@@ -9,13 +9,13 @@ export default Factory.extend({
   id() {
     return faker.random.uuid();
   },
-  name(i) {
+  className(i) {
     return classNames[i];
   },
 
   afterCreate(classObject, server) {
     server.createList('assignment', 5, {
-      class: classObject.attrs.name,
+      className: classObject.attrs.className,
     });
   }
 });

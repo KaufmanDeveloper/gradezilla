@@ -45,7 +45,7 @@ export default Component.extend({
 
   getAssignments: task(function* () {
     let assignments = yield this.get('store').query('assignment', {
-      class: this.get('selectedClassName')
+      className: this.get('selectedClassName')
     });
     this.set('assignments', assignments);
   }),
