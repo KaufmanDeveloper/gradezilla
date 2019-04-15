@@ -10,22 +10,34 @@ import {
   alias
 } from '@ember/object/computed';
 import {
-  sort
+  sort,
+  readOnly
 } from '@ember/object/computed';
 import {
-  computed
+  computed,
 } from '@ember/object';
 
 export default Component.extend({
+  init() {
+    this._super(...arguments);
+    this.addObserver('selectedClass', this, 'performGetAssignments');
+  },
+
   store: service(),
   router: service(),
 
   loading: alias('getAssignments.isRunning'),
   currentAssignment: null,
   assignmentIsSelected: false,
+  selectedClassName: readOnly('selectedClass'),
 
   groupHeaderHandler(item) {
     return item.get('category')
+  },
+
+  performGetAssignments() {
+    this.set('assignments', null);
+    this.get('getAssignments').perform();
   },
 
   categorySort: Object.freeze(['category:asc']),
@@ -33,13 +45,13 @@ export default Component.extend({
 
   getAssignments: task(function* () {
     let assignments = yield this.get('store').query('assignment', {
-      class: this.get('selectedClass')
+      class: this.get('selectedClassName')
     });
     this.set('assignments', assignments);
   }),
 
-  assignments: computed('selectedClass', function () {
-    if (this.get('selectedClass')) {
+  assignments: computed('selectedClassName', function () {
+    if (this.get('selectedClassName')) {
       this.get('getAssignments').perform();
     }
   }),
