@@ -1,10 +1,16 @@
-{{#nrg-list groupHeaderHandler=groupHeaderHandler items=sortedAssignments select="select" loading=loading as |list|}}
-  {{#list.items as |item|}}
-    {{assignment-list-item assignment=item click=(action "selectAssignment" item)}}
-  {{/list.items}}
-  {{list.create-button action="createAssignment"}}
-{{/nrg-list}}
+{{#if selectedClass}}
+  {{#nrg-list groupHeaderHandler=groupHeaderHandler items=sortedAssignments select="select" loading=loading as |list|}}
+    {{#list.items as |item|}}
+      {{assignment-list-item assignment=item click=(action "selectAssignment" item)}}
+    {{/list.items}}
+    {{list.create-button action="createAssignment"}}
+  {{/nrg-list}}
 
-{{#nrg-modal headerText="Edit Assignment" isOpen=assignmentIsSelected}}
-  {{assignment-create assignment=(readonly currentAssignment) assignmentIsSelected=assignmentIsSelected canDelete=true}}
-{{/nrg-modal}}
+  {{#nrg-modal headerText="Edit Assignment" isOpen=assignmentIsSelected}}
+    {{assignment-create assignment=(readonly currentAssignment) assignmentIsSelected=assignmentIsSelected canDelete=true}}
+  {{/nrg-modal}}
+{{else}}
+<div class="ui segment">
+  <p>Please select a class</p>
+</div>
+{{/if}}
