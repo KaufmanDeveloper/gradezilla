@@ -12,15 +12,6 @@ module('Integration | Component | assignment-list', function(hooks) {
 
     await render(hbs`{{assignment-list}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#assignment-list}}
-        template block text
-      {{/assignment-list}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'Please select a class');
   });
 });
