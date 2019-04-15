@@ -1,5 +1,5 @@
-import DS from 'ember-data';
+import RESTAdapter from 'ember-data/adapters/rest';
 
-export default DS.RESTAdapter.extend({
-  namespace: 'api/v1'
+export default RESTAdapter.extend({
+  namespace: 'api/gradezilla/v1',
 });

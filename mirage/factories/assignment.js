@@ -8,9 +8,6 @@ export default Factory.extend({
   id() {
     return faker.random.uuid();
   },
-  class() {
-    return faker.lorem.word();
-  },
   name() {
     return faker.lorem.word();
   },
