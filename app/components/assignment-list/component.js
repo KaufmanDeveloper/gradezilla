@@ -38,7 +38,7 @@ export default Component.extend({
     this.set('assignments', assignments);
   }),
 
-  assignments: computed(function () {
+  assignments: computed('selectedClass', function () {
     if (this.get('selectedClass')) {
       this.get('getAssignments').perform();
     }

@@ -11,5 +11,11 @@ export default Factory.extend({
   },
   name(i) {
     return classNames[i];
+  },
+
+  afterCreate(classObject, server) {
+    server.createList('assignment', 5, {
+      class: classObject.attrs.name,
+    });
   }
 });

@@ -1,9 +1,13 @@
-export default function() {
+export default function () {
   this.loadFixtures();
 
   this.namespace = '/api';
 
-  this.get('/gradezilla/v1/assignments', {
+  this.get('/gradezilla/v1/assignments', (schema, request) => {
+    var query = request.queryParams;
+
+    return schema.assignments.where(query);
+  }, {
     timing: 1000
   });
 
